@@ -1,10 +1,10 @@
 ---
-import '../../styles/global.css';
-import { AstroSeo } from '@astrolib/seo';
-import { getImage } from 'astro:assets';
-import macBackground1 from '../../assets/images/mac-background1.jpg';
-import macBackground2 from '../../assets/images/mac-background2.jpg';
-import macBackground3 from '../../assets/images/mac-background3.jpg';
+import "../../styles/global.css";
+import { AstroSeo } from "@astrolib/seo";
+import { getImage } from "astro:assets";
+import macBackground1 from "../../assets/images/mac-background1.jpg";
+import macBackground2 from "../../assets/images/mac-background2.jpg";
+import macBackground3 from "../../assets/images/mac-background3.jpg";
 
 const backgrounds = await Promise.all([
   getImage({ src: macBackground1, width: 3500 }),
@@ -14,68 +14,70 @@ const backgrounds = await Promise.all([
 ---
 
 <!-- Core meta tags -->
-<meta charset='UTF-8' />
-<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta
-  name='viewport'
-  content='width=device-width, initial-scale=1, maximum-scale=1'
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1"
 />
-<meta name='author' content='John Doe' />
+<meta name="author" content="childtom (汤超)" />
 <!-- Replace with your name -->
 
 <!-- SEO Configuration - customize these values -->
 <AstroSeo
-  title={Astro.props.title || 'John Doe - Full Stack Developer'}
+  title={Astro.props.title || "childtom (汤超) - 前端架构师 / 全栈开发工程师"}
   description={Astro.props.description ||
-    'Full Stack Developer based in Austin, TX specializing in React, Node.js, and modern web technologies'}
-  canonical={Astro.props.canonical || 'https://johndoe.com'}
+    "childtom（汤超），前端架构师与全栈开发工程师，常驻长沙 / 深圳，专注于大型前端架构设计、工程化与全栈交付。"}
+  canonical={Astro.props.canonical || "https://example.com"}
   openGraph={{
-    url: Astro.props.openGraph?.url || 'https://johndoe.com',
-    title: Astro.props.openGraph?.title || 'John Doe - Full Stack Developer',
+    url: Astro.props.openGraph?.url || "https://example.com",
+    title:
+      Astro.props.openGraph?.title ||
+      "childtom (汤超) - 前端架构师 / 全栈开发工程师",
     description:
       Astro.props.openGraph?.description ||
-      'Full Stack Developer based in Austin, TX specializing in React, Node.js, and modern web technologies',
+      "childtom（汤超），前端架构师与全栈开发工程师，先后就职于迅雷与腾讯，专注大型互联网业务的前端架构与全栈开发。",
     images: [
       {
-        url: '',
+        url: "",
         // og image here
       },
     ],
-    site_name: Astro.props.openGraph?.site_name || 'John Doe',
+    site_name: Astro.props.openGraph?.site_name || "childtom",
   }}
 />
 
 <!-- Add your favicon files in public/images/ -->
-<link rel='apple-touch-icon' sizes='180x180' href='/images/YOUR_FAVICON.svg' />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/YOUR_FAVICON.svg" />
 <link
-  rel='icon'
-  type='image/png'
-  sizes='32x32'
-  href='/images/YOUR_FAVICON.svg'
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/images/YOUR_FAVICON.svg"
 />
 <link
-  rel='icon'
-  type='image/png'
-  sizes='16x16'
-  href='/images/YOUR_FAVICON.svg'
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="/images/YOUR_FAVICON.svg"
 />
 
 <!-- Theme colors for browsers -->
-<meta name='msapplication-TileColor' content='YOUR_COLOR_HEX' />
-<meta name='theme-color' content='YOUR_COLOR_HEX' />
+<meta name="msapplication-TileColor" content="YOUR_COLOR_HEX" />
+<meta name="theme-color" content="YOUR_COLOR_HEX" />
 
 <!-- Auto-generated sitemap -->
-<link rel='sitemap' href='/sitemap-index.xml' />
+<link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Preload background images for performance -->
 {
   backgrounds.map((bg) => (
     <link
-      rel='preload'
+      rel="preload"
       href={bg.src}
-      as='image'
-      type='image/webp'
-      fetchpriority='high'
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
     />
   ))
 }

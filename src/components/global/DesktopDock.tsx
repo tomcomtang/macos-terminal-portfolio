@@ -8,11 +8,11 @@ export default function DesktopDock() {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:john@johndoe.com';
+    window.location.href = 'mailto:364786053@qq.com';
   };
 
   const handleGithubClick = () => {
-    window.open('https://github.com/johndoe', '_blank');
+    window.open('https://github.com/childtom', '_blank');
   };
 
   const handleCalendarClick = () => {
@@ -46,11 +46,11 @@ export default function DesktopDock() {
             onMouseEnter={() => setHoveredIcon('vscode')}
             onMouseLeave={() => setHoveredIcon(null)}
             className='relative'
-          >
+            >
             <div className='w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg'>
               <VscVscode size={45} className='text-blue-500' />
             </div>
-            {hoveredIcon === 'vscode' && <Tooltip text='Launch VS Code' />}
+            {hoveredIcon === 'vscode' && <Tooltip text='打开 VS Code' />}
           </button>
 
           {/* Email */}
@@ -59,11 +59,11 @@ export default function DesktopDock() {
             onMouseEnter={() => setHoveredIcon('email')}
             onMouseLeave={() => setHoveredIcon(null)}
             className='relative'
-          >
+            >
             <div className='w-14 h-14 bg-gradient-to-t from-blue-600 to-blue-400 rounded-xl flex items-center justify-center shadow-lg'>
               <IoIosMail size={45} className='text-white' />
             </div>
-            {hoveredIcon === 'email' && <Tooltip text='Email Me' />}
+            {hoveredIcon === 'email' && <Tooltip text='给我发邮件' />}
           </button>
 
           {/* Github */}
@@ -72,11 +72,11 @@ export default function DesktopDock() {
             onMouseEnter={() => setHoveredIcon('github')}
             onMouseLeave={() => setHoveredIcon(null)}
             className='relative'
-          >
+            >
             <div className='w-14 h-14  bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg'>
               <BsGithub size={45} className='text-gray-100' />
             </div>
-            {hoveredIcon === 'github' && <Tooltip text='My GitHub' />}
+            {hoveredIcon === 'github' && <Tooltip text='我的 GitHub' />}
           </button>
 
           {/* Calendar */}
@@ -85,7 +85,7 @@ export default function DesktopDock() {
             onMouseEnter={() => setHoveredIcon('calendar')}
             onMouseLeave={() => setHoveredIcon(null)}
             className='relative'
-          >
+            >
             <div className='w-14 h-14 overflow-hidden shadow-lg'>
               <div className='absolute inset-0 bg-gradient-to-b from-white to-gray-200 rounded-xl'></div>
 
@@ -101,7 +101,7 @@ export default function DesktopDock() {
                 </span>
               </div>
             </div>
-            {hoveredIcon === 'calendar' && <Tooltip text='Book a Call' />}
+            {hoveredIcon === 'calendar' && <Tooltip text='预约沟通' />}
           </button>
 
           {/* Spotify */}
@@ -110,11 +110,11 @@ export default function DesktopDock() {
             onMouseEnter={() => setHoveredIcon('spotify')}
             onMouseLeave={() => setHoveredIcon(null)}
             className='relative'
-          >
+            >
             <div className='w-14 h-14 bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg'>
               <BsSpotify size={45} className='text-[#1ED760]' />
             </div>
-            {hoveredIcon === 'spotify' && <Tooltip text='My Dev Playlist' />}
+            {hoveredIcon === 'spotify' && <Tooltip text='我的工作歌单' />}
           </button>
 
           {/* Divider */}
@@ -127,7 +127,7 @@ export default function DesktopDock() {
             onMouseEnter={() => setHoveredIcon('terminal')}
             onMouseLeave={() => setHoveredIcon(null)}
             className='relative'
-          >
+            >
             <div className='w-14 h-14 rounded-2xl overflow-hidden shadow-lg'>
               <div className='absolute inset-0 bg-gradient-to-b from-gray-300 to-gray-500 rounded-xl'></div>
               <div className='absolute inset-[2px] rounded-xl bg-black'>
@@ -136,7 +136,7 @@ export default function DesktopDock() {
                 </div>
               </div>
             </div>
-            {hoveredIcon === 'terminal' && <Tooltip text='Terminal' />}
+            {hoveredIcon === 'terminal' && <Tooltip text='终端' />}
           </button>
         </div>
       </div>

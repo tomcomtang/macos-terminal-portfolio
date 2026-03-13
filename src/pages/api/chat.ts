@@ -1,20 +1,39 @@
 import type { APIRoute } from 'astro';
-import OpenAI from 'openai';
-
-const openai = new OpenAI({
-  apiKey: import.meta.env.OPENAI_API_KEY,
-});
 
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
 
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: body.messages,
-      temperature: 0.7,
-      max_tokens: 500,
+    const apiKey =
+      import.meta.env.DEEPSEEK_API_KEY ?? import.meta.env.OPENAI_API_KEY;
+
+    if (!apiKey) {
+      throw new Error('Missing DEEPSEEK_API_KEY');
+    }
+
+    // DeepSeek chat completions endpoint (OpenAI-compatible)
+    const response = await fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages: body.messages,
+        temperature: 0.7,
+        max_tokens: 500,
+      }),
     });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(
+        `DeepSeek API error: ${response.status} ${response.statusText} - ${errorText}`
+      );
+    }
+
+    const completion = await response.json();
 
     return new Response(
       JSON.stringify({
@@ -28,9 +47,14 @@ export const POST: APIRoute = async ({ request }) => {
       }
     );
   } catch (error) {
+    console.error('DeepSeek API error in /api/chat:', error);
+
+    const message =
+      error instanceof Error ? error.message : JSON.stringify(error);
+
     return new Response(
       JSON.stringify({
-        error: 'Failed to generate response',
+        error: message,
       }),
       {
         status: 500,
