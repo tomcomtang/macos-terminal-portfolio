@@ -1,30 +1,29 @@
 import { useState } from 'react';
-import { BsGithub, BsSpotify, BsTerminal } from 'react-icons/bs';
+import { BsGithub, BsSpotify, BsTerminal, BsWechat } from 'react-icons/bs';
 import { IoIosMail } from 'react-icons/io';
-import { VscVscode } from 'react-icons/vsc';
 import { RiTerminalFill } from 'react-icons/ri';
 
 export default function DesktopDock() {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:364786053@qq.com';
+    window.open('mailto:364786053@qq.com');
   };
 
   const handleGithubClick = () => {
-    window.open('https://github.com/childtom', '_blank');
+    window.open('https://github.com/tomcomtang', '_blank');
   };
 
   const handleCalendarClick = () => {
-    window.open('https://calendly.com/', '_blank');
+    window.open('tel:18813676461');
   };
 
   const handleSpotifyClick = () => {
     window.open('https://open.spotify.com', '_blank');
   };
 
-  const handleVSCodeClick = () => {
-    window.location.href = 'vscode:/';
+  const handleWeChatClick = () => {
+    window.open('/wechat.jpg', '_blank');
   };
 
   const Tooltip = ({ text }: { text: string }) => (
@@ -40,17 +39,17 @@ export default function DesktopDock() {
     <div className='fixed bottom-0 left-1/2 -translate-x-1/2 hidden md:block z-50'>
       <div className='relative mb-2 p-3 bg-gradient-to-t from-gray-700 to-gray-800 backdrop-blur-2xl rounded-2xl'>
         <div className='flex items-end space-x-4'>
-          {/* VSCode */}
+          {/* WeChat */}
           <button
-            onClick={handleVSCodeClick}
-            onMouseEnter={() => setHoveredIcon('vscode')}
+            onClick={handleWeChatClick}
+            onMouseEnter={() => setHoveredIcon('wechat')}
             onMouseLeave={() => setHoveredIcon(null)}
-            className='relative'
-            >
-            <div className='w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg'>
-              <VscVscode size={45} className='text-blue-500' />
+            className='relative group'
+          >
+            <div className='w-14 h-14 bg-[#1AAD19] rounded-xl flex items-center justify-center shadow-lg transform transition-transform duration-150 ease-out group-hover:scale-125 group-hover:-translate-y-2'>
+              <BsWechat size={38} className='text-white' />
             </div>
-            {hoveredIcon === 'vscode' && <Tooltip text='打开 VS Code' />}
+            {hoveredIcon === 'wechat' && <Tooltip text='微信加我好友' />}
           </button>
 
           {/* Email */}
@@ -58,9 +57,9 @@ export default function DesktopDock() {
             onClick={handleEmailClick}
             onMouseEnter={() => setHoveredIcon('email')}
             onMouseLeave={() => setHoveredIcon(null)}
-            className='relative'
-            >
-            <div className='w-14 h-14 bg-gradient-to-t from-blue-600 to-blue-400 rounded-xl flex items-center justify-center shadow-lg'>
+            className='relative group'
+          >
+            <div className='w-14 h-14 bg-gradient-to-t from-blue-600 to-blue-400 rounded-xl flex items-center justify-center shadow-lg transform transition-transform duration-150 ease-out group-hover:scale-125 group-hover:-translate-y-2'>
               <IoIosMail size={45} className='text-white' />
             </div>
             {hoveredIcon === 'email' && <Tooltip text='给我发邮件' />}
@@ -71,9 +70,9 @@ export default function DesktopDock() {
             onClick={handleGithubClick}
             onMouseEnter={() => setHoveredIcon('github')}
             onMouseLeave={() => setHoveredIcon(null)}
-            className='relative'
-            >
-            <div className='w-14 h-14  bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg'>
+            className='relative group'
+          >
+            <div className='w-14 h-14  bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg transform transition-transform duration-150 ease-out group-hover:scale-125 group-hover:-translate-y-2'>
               <BsGithub size={45} className='text-gray-100' />
             </div>
             {hoveredIcon === 'github' && <Tooltip text='我的 GitHub' />}
@@ -84,9 +83,9 @@ export default function DesktopDock() {
             onClick={handleCalendarClick}
             onMouseEnter={() => setHoveredIcon('calendar')}
             onMouseLeave={() => setHoveredIcon(null)}
-            className='relative'
-            >
-            <div className='w-14 h-14 overflow-hidden shadow-lg'>
+            className='relative group'
+          >
+            <div className='w-14 h-14 overflow-hidden shadow-lg transform transition-transform duration-150 ease-out group-hover:scale-125 group-hover:-translate-y-2'>
               <div className='absolute inset-0 bg-gradient-to-b from-white to-gray-200 rounded-xl'></div>
 
               <div className='absolute top-0 inset-x-0 h-5 bg-red-500 flex items-center justify-center rounded-t-xl'>
@@ -109,9 +108,9 @@ export default function DesktopDock() {
             onClick={handleSpotifyClick}
             onMouseEnter={() => setHoveredIcon('spotify')}
             onMouseLeave={() => setHoveredIcon(null)}
-            className='relative'
-            >
-            <div className='w-14 h-14 bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg'>
+            className='relative group'
+          >
+            <div className='w-14 h-14 bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg transform transition-transform duration-150 ease-out group-hover:scale-125 group-hover:-translate-y-2'>
               <BsSpotify size={45} className='text-[#1ED760]' />
             </div>
             {hoveredIcon === 'spotify' && <Tooltip text='我的工作歌单' />}
@@ -126,9 +125,9 @@ export default function DesktopDock() {
           <button
             onMouseEnter={() => setHoveredIcon('terminal')}
             onMouseLeave={() => setHoveredIcon(null)}
-            className='relative'
-            >
-            <div className='w-14 h-14 rounded-2xl overflow-hidden shadow-lg'>
+            className='relative group'
+          >
+            <div className='w-14 h-14 rounded-2xl overflow-hidden shadow-lg transform transition-transform duration-150 ease-out group-hover:scale-125 group-hover:-translate-y-2'>
               <div className='absolute inset-0 bg-gradient-to-b from-gray-300 to-gray-500 rounded-xl'></div>
               <div className='absolute inset-[2px] rounded-xl bg-black'>
                 <div className='absolute top-1 left-2'>
