@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
-import vercel from '@astrojs/vercel';
+import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
@@ -11,6 +11,12 @@ export default defineConfig({
 
   // URL configuration
   trailingSlash: 'never', // Removes trailing slashes from URLs
+
+  // Server configuration (for SSR in production)
+  server: {
+    host: '0.0.0.0',
+    port: 4321,
+  },
 
   // Vite configuration
   vite: {
@@ -36,7 +42,9 @@ export default defineConfig({
 
   // Deployment configuration
   output: 'server', // Server-side rendering - required for OpenAI API usage
-  adapter: vercel(), // Deploy to Vercel - optional
+  adapter: node({
+    mode: 'standalone',
+  }),
   devToolbar: {
     enabled: false,
   },

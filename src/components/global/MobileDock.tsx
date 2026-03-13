@@ -1,4 +1,4 @@
-import { BsGithub } from 'react-icons/bs';
+import { BsGithub, BsWechat } from 'react-icons/bs';
 import { IoIosMail, IoIosCall } from 'react-icons/io';
 
 export default function MobileDock() {
@@ -10,6 +10,10 @@ export default function MobileDock() {
     window.open('https://github.com/tomcomtang', '_blank');
   };
 
+  const handleWeChatClick = () => {
+    window.open('/wechat.jpg', '_blank');
+  };
+
   return (
     <div className='fixed bottom-0 left-0 right-0 md:hidden'>
       <div className='mx-4 mb-4 p-3 bg-gradient-to-t from-gray-700 to-gray-800 backdrop-blur-xl rounded-3xl flex justify-around items-center max-w-[400px] mx-auto'>
@@ -18,6 +22,15 @@ export default function MobileDock() {
             <IoIosCall size={60} className='text-white' />
           </div>
         </a>
+
+        <button
+          onClick={handleWeChatClick}
+          className='flex flex-col items-center cursor-pointer'
+        >
+          <div className='w-18 h-18 bg-[#1AAD19] rounded-2xl flex items-center justify-center'>
+            <BsWechat size={55} className='text-white' />
+          </div>
+        </button>
 
         <button
           onClick={handleEmailClick}
