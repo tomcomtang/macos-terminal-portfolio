@@ -16,7 +16,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
+      host: '0.0.0.0',
       port: 3000,
+      // 允许通过域名访问本地开发服务（反向代理场景）
+      allowedHosts: ['childtom.top', 'www.childtom.top'],
     },
   },
 

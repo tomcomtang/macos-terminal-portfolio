@@ -52,7 +52,8 @@ export default function MacToolbar() {
 
   return (
     <>
-      <div className='sticky top-0 z-50 md:hidden bg-transparent text-white h-12 px-8 flex items-center justify-between text-base font-medium'>
+      {/* 移动端顶部状态栏（会与真机状态栏重叠，暂时关闭） */}
+      {/* <div className='sticky top-0 z-50 md:hidden bg-transparent text-white h-12 px-8 flex items-center justify-between text-base font-medium'>
         <span className='font-semibold'>
           {formatIPhoneTime(currentDateTime)}
         </span>
@@ -61,7 +62,7 @@ export default function MacToolbar() {
           <MdWifi size={20} />
           <IoBatteryHalfOutline size={24} />
         </div>
-      </div>
+      </div> */}
 
       <div className='sticky top-0 z-50 hidden md:flex bg-black/20 backdrop-blur-md text-white h-6 px-4 items-center justify-between text-sm'>
         <div className='flex items-center space-x-4'>

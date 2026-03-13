@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BsGithub, BsSpotify, BsTerminal, BsWechat } from 'react-icons/bs';
+import { BsGithub, BsTerminal, BsWechat } from 'react-icons/bs';
 import { IoIosMail } from 'react-icons/io';
 import { RiTerminalFill } from 'react-icons/ri';
 
@@ -16,10 +16,6 @@ export default function DesktopDock() {
 
   const handleCalendarClick = () => {
     window.open('tel:18813676461');
-  };
-
-  const handleSpotifyClick = () => {
-    window.open('https://open.spotify.com', '_blank');
   };
 
   const handleWeChatClick = () => {
@@ -101,19 +97,6 @@ export default function DesktopDock() {
               </div>
             </div>
             {hoveredIcon === 'calendar' && <Tooltip text='预约沟通' />}
-          </button>
-
-          {/* Spotify */}
-          <button
-            onClick={handleSpotifyClick}
-            onMouseEnter={() => setHoveredIcon('spotify')}
-            onMouseLeave={() => setHoveredIcon(null)}
-            className='relative group'
-          >
-            <div className='w-14 h-14 bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg transform transition-transform duration-150 ease-out group-hover:scale-125 group-hover:-translate-y-2'>
-              <BsSpotify size={45} className='text-[#1ED760]' />
-            </div>
-            {hoveredIcon === 'spotify' && <Tooltip text='我的工作歌单' />}
           </button>
 
           {/* Divider */}

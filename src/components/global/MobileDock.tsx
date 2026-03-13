@@ -1,4 +1,4 @@
-import { BsGithub, BsSpotify } from 'react-icons/bs';
+import { BsGithub } from 'react-icons/bs';
 import { IoIosMail, IoIosCall } from 'react-icons/io';
 
 export default function MobileDock() {
@@ -8,10 +8,6 @@ export default function MobileDock() {
 
   const handleGithubClick = () => {
     window.open('https://github.com/tomcomtang', '_blank');
-  };
-
-  const handleSpotifyClick = () => {
-    window.open('https://open.spotify.com', '_blank');
   };
 
   return (
@@ -41,14 +37,6 @@ export default function MobileDock() {
           </div>
         </button>
 
-        <button
-          onClick={handleSpotifyClick}
-          className='flex flex-col items-center cursor-pointer'
-        >
-          <div className='w-18 h-18 bg-gradient-to-t from-black to-black/60 rounded-2xl flex items-center justify-center'>
-            <BsSpotify size={55} className='text-[#1ED760]' />
-          </div>
-        </button>
       </div>
     </div>
   );
